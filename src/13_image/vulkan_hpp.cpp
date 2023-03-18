@@ -284,8 +284,14 @@ int main() {
             )
         }
       );
-      src_image->set_layout( vk::ImageLayout::eGeneral );
-      rec.convert_image( dest_image, vk::ImageLayout::eUndefined, vk::ImageLayout::eGeneral );
+      src_image->get_layout().set_layout(
+        0,
+        src_image->get_props().get_basic().mipLevels,
+        0,
+        src_image->get_props().get_basic().arrayLayers,
+        vk::ImageLayout::eGeneral
+      );
+      rec.convert_image( dest_image, vk::ImageLayout::eGeneral );
     }
     command_buffer->execute(
       gct::submit_info_t()
@@ -366,14 +372,14 @@ int main() {
       // デスクリプタをこのイメージビューにする
       .setImageView( *src_view )
       .setImageLayout(
-        src_image->get_props().get_basic().initialLayout
+        src_image->get_layout().get_uniform_layout()
       );
   const auto dest_descriptor_image_info =
     vk::DescriptorImageInfo()
       // デスクリプタをこのイメージビューにする
       .setImageView( *dest_view )
       .setImageLayout(
-        dest_image->get_props().get_basic().initialLayout
+        dest_image->get_layout().get_uniform_layout()
       );
 
   // デスクリプタの内容を更新
@@ -421,7 +427,6 @@ int main() {
     );
     
     rec.bind_pipeline(
-      vk::PipelineBindPoint::eCompute,
       pipeline
     );
    

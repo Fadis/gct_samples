@@ -322,7 +322,6 @@ int main() {
       for( unsigned i = 0; i != fbs.size(); ++i )
         rec.convert_image(
           swapchain_images[ i ],
-          vk::ImageLayout::eUndefined,
           vk::ImageLayout::eColorAttachmentOptimal
         );
  

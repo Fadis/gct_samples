@@ -259,6 +259,8 @@ int main() {
           .setImageType( vk::ImageType::e2D )
           .setFormat( vk::Format::eR8G8B8A8Unorm )
           .setExtent( { 1024, 1024, 1 } )
+          .setMipLevels( 1 )
+          .setArrayLayers( 1 )
           .setUsage(
             vk::ImageUsageFlagBits::eTransferSrc |
             vk::ImageUsageFlagBits::eColorAttachment
@@ -301,7 +303,6 @@ int main() {
     auto rec = command_buffer->begin();
     rec.convert_image(
       dest_image,
-      vk::ImageLayout::eUndefined,
       vk::ImageLayout::eColorAttachmentOptimal
     );
 
@@ -468,7 +469,6 @@ int main() {
 
     rec.convert_image(
       dest_image,
-      vk::ImageLayout::eColorAttachmentOptimal,
       vk::ImageLayout::eTransferSrcOptimal
     );
     rec.copy(

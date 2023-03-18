@@ -220,7 +220,6 @@ int main() {
     );
     
     rec.bind_pipeline(
-      vk::PipelineBindPoint::eCompute,
       pipeline
     );
     // 1回目のdispatch    
@@ -241,7 +240,6 @@ int main() {
     );
     
     rec.bind_pipeline(
-      vk::PipelineBindPoint::eCompute,
       pipeline
     );
     

@@ -19,7 +19,7 @@
 #include <gct/compute_pipeline_create_info.hpp>
 #include <gct/compute_pipeline.hpp>
 #include <gct/write_descriptor_set.hpp>
-
+#include <vulkan2json/ImageMemoryBarrier.hpp>
 struct spec_t {
   std::uint32_t local_x_size = 0u;
   std::uint32_t local_y_size = 0u;
@@ -208,14 +208,26 @@ int main() {
     const auto command_buffer = queue->get_command_pool()->allocate();
     {
       auto rec = command_buffer->begin();
+      std::cout << __FILE__ << " " << __LINE__ << std::endl;
+      for(  const auto &v: src_image->get_layout().get_layout() )
+        std::cout << nlohmann::json( v ) << std::endl;
+      rec.convert_image( src_image, vk::ImageLayout::eTransferDstOptimal );
       // 入力イメージの内容を書く
+      std::cout << __FILE__ << " " << __LINE__ << std::endl;
+      for(  const auto &v: src_image->get_layout().get_layout() )
+        std::cout << nlohmann::json( v ) << std::endl;
       rec.copy(
         src_buffer,
         src_image,
         vk::ImageLayout::eGeneral
       );
+      std::cout << __FILE__ << " " << __LINE__ << std::endl;
+      for(  const auto &v: src_image->get_layout().get_layout() )
+        std::cout << nlohmann::json( v ) << std::endl;
       // イメージのレイアウトを不定から汎用に変更
-      rec.convert_image( dest_image, vk::ImageLayout::eUndefined, vk::ImageLayout::eGeneral );
+      rec.convert_image( dest_image, vk::ImageLayout::eGeneral );
+      for(  const auto &v: src_image->get_layout().get_layout() )
+        std::cout << nlohmann::json( v ) << std::endl;
     }
     command_buffer->execute(
       gct::submit_info_t()
@@ -285,7 +297,7 @@ int main() {
             .set_basic(
               vk::DescriptorImageInfo()
                 .setImageLayout(
-                  src_image->get_props().get_basic().initialLayout
+                  src_image->get_layout().get_uniform_layout()
                 )
             )
             // このイメージビューにする
@@ -301,7 +313,7 @@ int main() {
             .set_basic(
               vk::DescriptorImageInfo()
                 .setImageLayout(
-                  dest_image->get_props().get_basic().initialLayout
+                  dest_image->get_layout().get_uniform_layout()
                 )
             )
             // このイメージビューにする
@@ -322,7 +334,6 @@ int main() {
     );
     
     rec.bind_pipeline(
-      vk::PipelineBindPoint::eCompute,
       pipeline
     );
    

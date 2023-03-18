@@ -221,8 +221,6 @@ int main() {
     
     // 以降のパイプラインの実行ではこのパイプラインを使う
     rec.bind_pipeline(
-      // コンピュートパイプラインを
-      vk::PipelineBindPoint::eCompute,
       // これにする
       pipeline
     );

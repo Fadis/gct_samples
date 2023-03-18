@@ -288,6 +288,8 @@ int main() {
             .setImageType( vk::ImageType::e2D )
             .setFormat( vk::Format::eD16Unorm )
             .setExtent( swapchain_images[ i ]->get_props().get_basic().extent )
+            .setMipLevels( 1 )
+            .setArrayLayers( 1 )
             .setUsage( vk::ImageUsageFlagBits::eDepthStencilAttachment )
         ),
       VMA_MEMORY_USAGE_GPU_ONLY
@@ -318,7 +320,6 @@ int main() {
       for( unsigned i = 0; i != fbs.size(); ++i )
         rec.convert_image(
           swapchain_images[ i ],
-          vk::ImageLayout::eUndefined,
           vk::ImageLayout::eColorAttachmentOptimal
         );
  
@@ -365,12 +366,10 @@ int main() {
       sync.command_buffer->wait_for_executed();
     }
     else sync.initial = false;
-    // スワップチェーンから描画に使えるイメージを貰う
     auto image_index = swapchain->acquire_next_image( sync.image_acquired );
     auto &fb = fbs[ image_index ];
     {
       auto rec = fb.command_buffer->begin();
- 
       rec->beginRenderPass(
         vk::RenderPassBeginInfo()
           .setRenderPass( **render_pass )

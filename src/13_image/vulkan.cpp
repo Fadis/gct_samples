@@ -251,7 +251,7 @@ int main() {
         buffer_image_copy.imageOffset.x = 0;
         buffer_image_copy.imageOffset.y = 0;
         buffer_image_copy.imageOffset.z = 0;
-        buffer_image_copy.imageExtent = src_image->get_props().get_basic().extent;
+        buffer_image_copy.imageExtent = static_cast< VkExtent3D >( src_image->get_props().get_basic().extent );
         vkCmdCopyBufferToImage(
           *rec,
           **src_buffer,
@@ -291,8 +291,14 @@ int main() {
           &image_memory_barrier
         );
       }
-      src_image->set_layout( vk::ImageLayout::eGeneral );
-      rec.convert_image( dest_image, vk::ImageLayout::eUndefined, vk::ImageLayout::eGeneral );
+      src_image->get_layout().set_layout(
+        0,
+        src_image->get_props().get_basic().mipLevels,
+        0,
+        src_image->get_props().get_basic().arrayLayers,
+        vk::ImageLayout::eGeneral
+      );
+      rec.convert_image( dest_image, vk::ImageLayout::eGeneral );
     }
     command_buffer->execute(
       gct::submit_info_t()
@@ -437,7 +443,6 @@ int main() {
     );
     
     rec.bind_pipeline(
-      vk::PipelineBindPoint::eCompute,
       pipeline
     );
    
@@ -468,7 +473,7 @@ int main() {
       buffer_image_copy.imageOffset.x = 0;
       buffer_image_copy.imageOffset.y = 0;
       buffer_image_copy.imageOffset.z = 0;
-      buffer_image_copy.imageExtent = dest_image->get_props().get_basic().extent;
+      buffer_image_copy.imageExtent = static_cast< VkExtent3D >( dest_image->get_props().get_basic().extent );
       vkCmdCopyImageToBuffer(
         *rec,
         **dest_image,

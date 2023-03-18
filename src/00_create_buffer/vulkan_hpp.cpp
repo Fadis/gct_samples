@@ -80,7 +80,7 @@ int main() {
   VmaAllocationCreateInfo staging_buffer_alloc_info = {};
   // CPUからGPUへの転送に適したバッファが欲しい
   staging_buffer_alloc_info.usage = VMA_MEMORY_USAGE_CPU_TO_GPU;
-  VkBufferCreateInfo buffer_create_info =
+  VkBufferCreateInfo buffer_create_info = static_cast< VkBufferCreateInfo >(
     vk::BufferCreateInfo()
       // 1024バイトの
       .setSize( 1024 )
@@ -88,7 +88,8 @@ int main() {
       .setUsage(
         vk::BufferUsageFlagBits::eTransferSrc|
         vk::BufferUsageFlagBits::eTransferDst
-      );
+      )
+  );
   VkBuffer staging_buffer;
   VmaAllocation staging_buffer_allocation;
   if( vmaCreateBuffer(

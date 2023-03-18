@@ -200,7 +200,7 @@ int main() {
         vk::ImageLayout::eGeneral
       );
       rec.create_mipmap( src_image, vk::ImageLayout::eUndefined, vk::ImageLayout::eShaderReadOnlyOptimal );
-      rec.convert_image( dest_image, vk::ImageLayout::eUndefined, vk::ImageLayout::eGeneral );
+      rec.convert_image( dest_image, vk::ImageLayout::eGeneral );
     }
     command_buffer->execute(
       gct::submit_info_t()
@@ -354,7 +354,6 @@ int main() {
     );
     
     rec.bind_pipeline(
-      vk::PipelineBindPoint::eCompute,
       pipeline
     );
 

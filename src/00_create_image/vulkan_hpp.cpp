@@ -66,7 +66,7 @@ int main() {
   VmaAllocationCreateInfo image_alloc_info = {};
   // GPUのみが読めるイメージが欲しい
   image_alloc_info.usage = VMA_MEMORY_USAGE_GPU_ONLY;
-  VkImageCreateInfo image_create_info =
+  VkImageCreateInfo image_create_info = static_cast< VkImageCreateInfo >(
     vk::ImageCreateInfo()
       // 2次元で
       .setImageType( vk::ImageType::e2D )
@@ -91,7 +91,8 @@ int main() {
       .setQueueFamilyIndexCount( 0 )
       .setPQueueFamilyIndices( nullptr )
       // 初期状態は不定な
-      .setInitialLayout( vk::ImageLayout::eUndefined );
+      .setInitialLayout( vk::ImageLayout::eUndefined )
+  );
   VkImage image;
   VmaAllocation image_allocation;
   if( vmaCreateImage(

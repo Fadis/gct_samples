@@ -131,7 +131,7 @@ int main() {
   swapchain_create_info.minImageCount = image_count;
   swapchain_create_info.imageFormat = surface_format.format;
   swapchain_create_info.imageColorSpace = surface_format.colorSpace;
-  swapchain_create_info.imageExtent = surface_capabilities.currentExtent;
+  swapchain_create_info.imageExtent = static_cast< VkExtent2D >( surface_capabilities.currentExtent );
   swapchain_create_info.imageArrayLayers = 1u;
   swapchain_create_info.imageUsage = VkImageUsageFlagBits::VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
   swapchain_create_info.imageSharingMode = VkSharingMode::VK_SHARING_MODE_EXCLUSIVE;
