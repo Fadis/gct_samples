@@ -25,4 +25,16 @@ subdirs(
   19_acceleration_structure
   20_ray_tracing_pipeline
   21_shader_binding_table
+  30_shadow_map
+  50_deffered
+  51_ssao
+  52_ssdo
+  53_ssdo_with_bounce
+  54_hbao
+  55_hbao_with_biased_horizon
+  56_hbao_with_distance_mask
+  57_vxao
+  58_rtao
+  59_gi_diffuse
+  60_gi_specular
 )

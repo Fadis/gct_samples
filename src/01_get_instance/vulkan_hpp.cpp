@@ -1,5 +1,9 @@
 #include <vector>
+#include <utility>
+#include <cstdint>
 #include <vulkan/vulkan.hpp>
+
+extern "C" std::vector<std::pair<uint32_t, uint32_t>> custom_stype_info;
 
 int main() {
 #ifdef VULKAN_HPP_DISPATCH_LOADER_DYNAMIC
@@ -29,8 +33,7 @@ int main() {
       // アプリケーションの情報を指定
       .setPApplicationInfo( &app_info )
       // 使用するレイヤーを指定
-      .setEnabledLayerCount( layers.size() )
-      .setPpEnabledLayerNames( layers.data() )
+      .setPEnabledLayerNames( layers )
   );
 #ifdef VULKAN_HPP_DISPATCH_LOADER_DYNAMIC
   VULKAN_HPP_DEFAULT_DISPATCHER.init( *instance );

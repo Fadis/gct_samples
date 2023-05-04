@@ -256,7 +256,7 @@ int main() {
                 // 1枚の範囲
                 .setLayerCount( 1 )
             )
-            .setViewType( gct::to_image_view_type( src_image->get_props().get_basic().imageType ) )
+            .setViewType( gct::to_image_view_type( src_image->get_props().get_basic().imageType, src_image->get_props().get_basic().arrayLayers ) )
         )
         .rebuild_chain()
     );
@@ -279,14 +279,14 @@ int main() {
                 // 1枚の範囲
                 .setLayerCount( 1 )
             )
-            .setViewType( gct::to_image_view_type( dest_image->get_props().get_basic().imageType ) )
+            .setViewType( gct::to_image_view_type( dest_image->get_props().get_basic().imageType, dest_image->get_props().get_basic().arrayLayers ) )
         )
         .rebuild_chain()
     );
 
   // デスクリプタセットを更新
   descriptor_set->update(
-    {
+    std::vector<gct::write_descriptor_set_t>{
       gct::write_descriptor_set_t()
         .set_basic(
           // このデスクリプタを

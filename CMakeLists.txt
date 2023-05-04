@@ -65,11 +65,16 @@ set(CMAKE_VERBOSE_MAKEFILE OFF)
 find_package(Threads REQUIRED)
 set(Boost_USE_MULTITHREADED ON)
 find_package(Boost 1.68.0 COMPONENTS program_options context system REQUIRED )
-find_package(Vulkan REQUIRED)
 find_package(JSON REQUIRED)
+find_package(LibXCB REQUIRED)
+pkg_check_modules(Vulkan REQUIRED vulkan)
 pkg_check_modules(VULKAN2JSON REQUIRED vulkan2json)
 pkg_check_modules(GCT REQUIRED libgct)
 pkg_check_modules(GCTGLFW REQUIRED libgct_glfw)
+find_package(GLSLC REQUIRED)
+find_package(ASTCEnc REQUIRED)
+find_package(OpenImageIO REQUIRED)
+
 
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}/include
@@ -90,9 +95,16 @@ link_directories(
   ${GCT_GLFW_LIBRARY_DIR}
 )
 link_libraries(
+  Threads::Threads
+  Boost::program_options
+  Boost::system
   ${Vulkan_LIBRARIES}
   ${GCT_LIBRARIES}
   ${GCTGLFW_LIBRARIES}
+  ${pkgcfg_lib_Vulkan_vulkan}
+  ${OIIO_LIBRARIES}
+  ${pkgcfg_lib_GLFW_glfw}
+  ${pkgcfg_lib_GLFW_glfw3}
 )
 
 
@@ -104,6 +116,9 @@ set( EASYPACK_MAINTAINER "Naomasa Matsubayashi <foo@exmple.com>" )
 set( EASYPACK_COMPRESSION_TYPE "xz" )
 set( EASYPACK_LICENSE_NAME "MIT" )
 include(EasyPack)
+
+include(AddShader)
+include(AddASTC)
 
 subdirs( src )
 
