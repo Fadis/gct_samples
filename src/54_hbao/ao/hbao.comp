@@ -18,6 +18,5 @@ void main() {
   const vec2 h135 = imageLoad( hbao_image, ivec3( screen_pos, 3 ) ).rg;
   float visibility = h0.x * h90.x * h45.x * h135.x;
   imageStore( dest_image, screen_pos, vec4( visibility, 1.0, 0.0, 1.0 ) );
-  //imageStore( dest_image, screen_pos, vec4( h135.y, 1.0, 0.0, 1.0 ) );
 }
 

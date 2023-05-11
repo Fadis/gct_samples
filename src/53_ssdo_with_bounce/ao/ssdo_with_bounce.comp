@@ -78,9 +78,9 @@ void main() {
     float visibility = ( 1.0 - step( sample_depth, screen_pos.z ) );
     env_color +=
       mix(
-        vec3( visibility ),
-        sample_diffuse * 3000 * 1/max( travel_distance * travel_distance, 1.0 ) * max( dot( normal, actual_dir ), 0 ) * max( dot( sample_normal, -actual_dir ), 0 ),
-        diffuse_ambient_light( dir, vec3( 1.0, 1.0, 1.0 ), roughness, metallicness ) * r
+        sample_diffuse * 500 * 1/max( travel_distance * travel_distance, 1.0 ) * max( dot( normal, actual_dir ), 0 ) * max( dot( sample_normal, -actual_dir ), 0 ),
+        diffuse_ambient_light( dir, vec3( 1.0, 1.0, 1.0 ), roughness, metallicness ) * r,
+        vec3( visibility )
       );
     scale += r;
   }

@@ -53,8 +53,6 @@ void main() {
     const float sample_depth = imageLoad( gbuffer, ivec3( sample_pos, 0 ) ).w;
     visibility +=  ( 1.0 - step( sample_depth, screen_pos.z ) ) * r;
     scale += r;
-
-    //visibility += 1.0 - step( sample_depth, screen_pos.z );
   }
   imageStore( dest_image, screen_pos, vec4( visibility / scale, 0, 0, 0 ) );
 }

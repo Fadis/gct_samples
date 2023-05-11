@@ -26,10 +26,10 @@ void main()  {
   const vec3 ambient = dynamic_uniforms.ambient * dynamic_uniforms.light_energy * imageLoad( occlusion, screen_pos ).r * albedo.rgb;
   const vec4 diffuse = imageLoad( diffuse_image, screen_pos );
   const vec3 specular = imageLoad( specular_image, screen_pos ).rgb;
-  const vec3 total = ( ambient + diffuse.rgb + specular ) / tone.scale;
+  const vec3 total = ( ambient /*+ diffuse.rgb + specular*/ ) / tone.scale;
   const vec3 bloom = max( total - vec3( 1.0, 1.0, 1.0 ), vec3( 0.0, 0.0, 0.0 ) );
 
   imageStore( dest_image, screen_pos, vec4( total, albedo.a ) );
-  imageStore( bloom_image, screen_pos, vec4( bloom, 1.0 ) );
+  imageStore( bloom_image, screen_pos, vec4( /*bloom*/0,0,0, 1.0 ) );
 }
 

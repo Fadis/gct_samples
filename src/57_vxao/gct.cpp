@@ -700,7 +700,6 @@ int main( int argc, const char *argv[] ) {
     CMAKE_CURRENT_BINARY_DIR "/ao/vxao.comp.spv"
   );
 
-  //////////////
   std::vector< std::shared_ptr< gct::descriptor_set_t > > ao_descriptor_set;
   for( std::size_t i = 0u; i != swapchain_images.size(); ++i ) {
     ao_descriptor_set.push_back(

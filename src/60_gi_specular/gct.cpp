@@ -796,7 +796,6 @@ int main( int argc, const char *argv[] ) {
     CMAKE_CURRENT_BINARY_DIR "/ssdgi/ssdgi.comp.spv"
   );
 
-  //////////////
   std::vector< std::shared_ptr< gct::descriptor_set_t > > ssdgi_descriptor_set;
   for( std::size_t i = 0u; i != swapchain_images.size(); ++i ) {
     ssdgi_descriptor_set.push_back(
@@ -934,7 +933,6 @@ int main( int argc, const char *argv[] ) {
     CMAKE_CURRENT_BINARY_DIR "/ssr/ssr.comp.spv"
   );
 
-  //////////////
   std::vector< std::shared_ptr< gct::descriptor_set_t > > ssr_descriptor_set;
   for( std::size_t i = 0u; i != swapchain_images.size(); ++i ) {
     ssr_descriptor_set.push_back(

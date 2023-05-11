@@ -25,6 +25,7 @@ subdirs(
   19_acceleration_structure
   20_ray_tracing_pipeline
   21_shader_binding_table
+  25_gltf
   30_shadow_map
   50_deffered
   51_ssao

@@ -34,7 +34,6 @@ void main() {
   gl_PrimitiveID = gl_PrimitiveIDIn;
   for( int i = 0; i < gl_in.length(); i++ ) {
     gl_Position = gl_in[ i ].gl_Position;
-    //gl_PointSize = gl_in[ i ].gl_PointSize;
     output_position = input_position[ i ];
     output_normal = input_normal[ i ];
     output_face_normal = normalize( cross( input_position[ 2 ].xyz - input_position[ 0 ].xyz, input_position[ 1 ].xyz - input_position[ 0 ].xyz ) );

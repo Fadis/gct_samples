@@ -53,7 +53,6 @@ void main() {
   if( scale > 0.0 ) {
     sum /= scale;
   }
-  //imageStore( dest_image, screen_pos, cache[ lcpos + kernel_size ] );
   imageStore( dest_image, screen_pos, sum );
 }
 
