@@ -1,4 +1,5 @@
 #include <iostream>
+#include <nlohmann/json.hpp>
 #include <vulkan/vulkan.hpp>
 #include <gct/instance.hpp>
 #include <vulkan2json/PhysicalDeviceProperties.hpp>

@@ -19,6 +19,8 @@
 #include <gct/compute_pipeline_create_info.hpp>
 #include <gct/compute_pipeline.hpp>
 #include <gct/write_descriptor_set.hpp>
+#include <gct/command_buffer.hpp>
+#include <gct/command_pool.hpp>
 
 struct spec_t {
   std::uint32_t local_x_size = 0u;

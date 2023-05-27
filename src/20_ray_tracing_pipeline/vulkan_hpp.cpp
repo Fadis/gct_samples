@@ -28,6 +28,7 @@
 #include <gct/device_address.hpp>
 #include <gct/ray_tracing_pipeline.hpp>
 #include <gct/io_context.hpp>
+#include <gct/descriptor_pool.hpp>
 
 std::future< vk::Result > async(
   const vk::Device &device,

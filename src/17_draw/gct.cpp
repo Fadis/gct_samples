@@ -21,6 +21,11 @@
 #include <gct/graphics_pipeline.hpp>
 #include <gct/sampler_create_info.hpp>
 #include <gct/pipeline_layout.hpp>
+#include <gct/command_buffer.hpp>
+#include <gct/command_pool.hpp>
+#include <gct/framebuffer.hpp>
+#include <gct/render_pass.hpp>
+#include <gct/descriptor_pool.hpp>
 #include <gct/gltf.hpp>
 
 int main() {

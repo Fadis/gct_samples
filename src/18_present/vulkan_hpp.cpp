@@ -26,6 +26,11 @@
 #include <gct/present_info.hpp>
 #include <gct/fence.hpp>
 #include <gct/semaphore.hpp>
+#include <gct/command_buffer.hpp>
+#include <gct/command_pool.hpp>
+#include <gct/framebuffer.hpp>
+#include <gct/render_pass.hpp>
+#include <gct/descriptor_pool.hpp>
 
 struct fb_resources_t {
   std::shared_ptr< gct::image_t > color_image;

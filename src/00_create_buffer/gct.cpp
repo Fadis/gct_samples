@@ -8,14 +8,6 @@
 #include <gct/device_create_info.hpp>
 #include <gct/buffer.hpp>
 
-struct fb_resources_t {
-  std::shared_ptr< gct::framebuffer_t > framebuffer;
-  std::shared_ptr< gct::semaphore_t > image_acquired;
-  std::shared_ptr< gct::semaphore_t > draw_complete;
-  std::shared_ptr< gct::semaphore_t > image_ownership;
-  std::shared_ptr< gct::fence_t > fence;
-};
-
 struct spec_t {
   std::uint32_t local_x_size = 0u;
   std::uint32_t local_y_size = 0u;
@@ -63,7 +55,6 @@ int main() {
     gct::device_create_info_t()
   );
   const auto queue = device->get_queue( 0u );
-  const auto command_buffer = queue->get_command_pool()->allocate();
 
   // アロケータを作る
   const auto allocator = device->get_allocator();

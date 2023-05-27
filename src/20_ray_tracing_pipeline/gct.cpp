@@ -26,6 +26,11 @@
 #include <gct/present_info.hpp>
 #include <gct/device_address.hpp>
 #include <gct/ray_tracing_pipeline.hpp>
+#include <gct/command_buffer.hpp>
+#include <gct/command_pool.hpp>
+#include <gct/framebuffer.hpp>
+#include <gct/render_pass.hpp>
+#include <gct/descriptor_pool.hpp>
 
 int main() {
   uint32_t iext_count = 0u;

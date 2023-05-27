@@ -22,14 +22,6 @@
 #include <gct/write_descriptor_set.hpp>
 #include <vulkan/vulkan.hpp>
 
-struct fb_resources_t {
-  std::shared_ptr< gct::framebuffer_t > framebuffer;
-  std::shared_ptr< gct::semaphore_t > image_acquired;
-  std::shared_ptr< gct::semaphore_t > draw_complete;
-  std::shared_ptr< gct::semaphore_t > image_ownership;
-  std::shared_ptr< gct::fence_t > fence;
-};
-
 struct spec_t {
   std::uint32_t local_x_size = 0u;
   std::uint32_t local_y_size = 0u;

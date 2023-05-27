@@ -29,6 +29,8 @@
 #include <gct/acceleration_structure_geometry.hpp>
 #include <gct/acceleration_structure_build_geometry_info.hpp>
 #include <gct/acceleration_structure_geometry_triangles_data.hpp>
+#include <gct/command_buffer.hpp>
+#include <gct/command_pool.hpp>
 
 int main() {
   uint32_t iext_count = 0u;

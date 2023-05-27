@@ -23,6 +23,8 @@
 #include <gct/write_descriptor_set.hpp>
 #include <gct/sampler_create_info.hpp>
 #include <gct/pipeline_layout.hpp>
+#include <gct/command_buffer.hpp>
+#include <gct/command_pool.hpp>
 
 struct push_constant_t {
   glm::mat2x2 tex_mat;

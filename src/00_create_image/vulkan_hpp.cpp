@@ -50,7 +50,6 @@ int main() {
     gct::device_create_info_t()
   );
   const auto queue = device->get_queue( 0u );
-  const auto command_buffer = queue->get_command_pool()->allocate();
 
   // アロケータを作る
   VmaAllocatorCreateInfo allocator_create_info;
