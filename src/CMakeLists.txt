@@ -38,4 +38,13 @@ subdirs(
   58_rtao
   59_gi_diffuse
   60_gi_specular
+  70_transparent_plane
+  71_transparent_object
+  72_traditional_fog
+  73_ssls
+  74_epipolar_sampling
+  75_froxel_sampling
+  76_froxel_sampling_with_shadow
+  77_osm
+  78_fom
 )

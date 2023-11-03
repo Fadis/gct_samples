@@ -142,8 +142,13 @@ int main() {
 
   // パイプラインは一度に複数作れるのでvectorで返ってくる
   // 1つめの設定のパイプラインは返り値の1要素目に入っている
-  if( wrapped.result != vk::Result::eSuccess )
+  if( wrapped.result != vk::Result::eSuccess ) {
+#if VK_HEADER_VERSION >= 256
+    vk::detail::throwResultException( wrapped.result, "createComputePipeline failed" );
+#else
     vk::throwResultException( wrapped.result, "createComputePipeline failed" );
+#endif
+  }
   auto pipeline = std::move( wrapped.value[ 0 ] );
 
   // パイプラインキャッシュをシリアライズする

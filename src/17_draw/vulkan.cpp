@@ -7,6 +7,8 @@
 #include <gct/queue.hpp>
 #include <gct/device.hpp>
 #include <gct/allocator.hpp>
+#include <gct/buffer.hpp>
+#include <gct/image.hpp>
 #include <gct/device_create_info.hpp>
 #include <gct/image_create_info.hpp>
 #include <gct/swapchain.hpp>

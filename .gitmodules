@@ -1,0 +1,6 @@
+[submodule "extrernal/psrdnoise"]
+	path = extrernal/psrdnoise
+	url = https://github.com/stegu/psrdnoise.git
+[submodule "external/psrdnoise"]
+	path = external/psrdnoise
+	url = https://github.com/stegu/psrdnoise.git

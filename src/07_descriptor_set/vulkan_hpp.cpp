@@ -1,6 +1,7 @@
 #include <iostream>
 #include <gct/instance.hpp>
 #include <gct/device.hpp>
+#include <gct/buffer.hpp>
 #include <gct/allocator.hpp>
 #include <gct/device_create_info.hpp>
 #include <vulkan/vulkan.hpp>
