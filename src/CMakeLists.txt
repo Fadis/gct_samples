@@ -47,4 +47,14 @@ subdirs(
   76_froxel_sampling_with_shadow
   77_osm
   78_fom
+  90_no_culling
+  91_frustum_culling
+  92_portal_culling
+  93_chc
+  94_nohc
+  95_chcplus
+  96_roc
+  97_hroc
+  98_radix_sort
+  99_onesweep
 )

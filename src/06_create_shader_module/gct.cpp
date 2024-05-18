@@ -6,6 +6,7 @@
 #include <gct/device_create_info.hpp>
 #include <gct/shader_module_create_info.hpp>
 #include <gct/shader_module.hpp>
+#include <gct/shader_module_reflection.hpp>
 #include <gct/spirv_reflect.h>
 #include <gct/spv2json.hpp>
 
