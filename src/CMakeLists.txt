@@ -57,4 +57,16 @@ subdirs(
   97_hroc
   98_radix_sort
   99_onesweep
+  110_gauss_dof
+  111_splitted_gauss_dof
+  112_k+buffer
+  113_gauss_dof_with_k+buffer
+  114_hex_dof
+  115_lrlf_dof
+  116_star_burst
+  117_natural_vignetting
+  118_sslf
+  119_prtlf
+  120_motion_blur
+  121_ppfl_motion_blur
 )
