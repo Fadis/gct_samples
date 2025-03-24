@@ -7,7 +7,11 @@ extern "C" std::vector<std::pair<uint32_t, uint32_t>> custom_stype_info;
 
 int main() {
 #ifdef VULKAN_HPP_DISPATCH_LOADER_DYNAMIC
-  vk::DynamicLoader dl;
+#if VK_HEADER_VERSION >= 301
+    vk::detail::DynamicLoader dl;
+#else
+    vk::DynamicLoader dl;
+#endif
   PFN_vkGetInstanceProcAddr vkGetInstanceProcAddr =
   dl.getProcAddress<PFN_vkGetInstanceProcAddr>( "vkGetInstanceProcAddr" );
   VULKAN_HPP_DEFAULT_DISPATCHER.init( vkGetInstanceProcAddr );
