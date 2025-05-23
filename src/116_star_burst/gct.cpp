@@ -63,6 +63,7 @@
 struct fb_resources_t {
   std::shared_ptr< gct::semaphore_t > image_acquired;
   std::shared_ptr< gct::semaphore_t > draw_complete;
+  std::shared_ptr< gct::semaphore_t > render_complete;
   std::shared_ptr< gct::semaphore_t > image_ownership;
   std::shared_ptr< gct::bound_command_buffer_t > command_buffer;
   bool initial = true;
@@ -307,6 +308,7 @@ int main( int argc, const char *argv[] ) {
         res.device->get_semaphore(),
         res.device->get_semaphore(),
         res.device->get_semaphore(),
+        res.device->get_semaphore(),
         res.queue->get_command_pool()->allocate()
       }
     );
@@ -545,6 +547,7 @@ int main( int argc, const char *argv[] ) {
   while( !walk.end() ) {
     gct::blocking_timer frame_rate;
     ++walk;
+    auto &sync = framebuffers[ current_frame ];
     const auto global_data = global_uniforms_t()
       .set_projection_matrix( *proj_desc )
       .set_camera_matrix( *camera_desc )
@@ -761,9 +764,12 @@ int main( int argc, const char *argv[] ) {
         rec.compute_barrier( {}, { mixed_out->get_factory() } );
         tone.get( rec, 0 );
       }
-      command_buffer->execute_and_wait();
+      command_buffer->execute(
+        gct::submit_info_t()
+          .add_wait_for( sync.draw_complete, vk::PipelineStageFlagBits::eAllCommands )
+          .add_signal_to( sync.render_complete )
+      );
     }
-    auto &sync = framebuffers[ current_frame ];
     if( !sync.initial ) {
       sync.command_buffer->wait_for_executed();
     }
@@ -780,6 +786,7 @@ int main( int argc, const char *argv[] ) {
     }
     sync.command_buffer->execute(
       gct::submit_info_t()
+        .add_wait_for( sync.render_complete, vk::PipelineStageFlagBits::eAllCommands )
         .add_wait_for( sync.image_acquired, vk::PipelineStageFlagBits::eColorAttachmentOutput )
         .add_signal_to( sync.draw_complete )
     );

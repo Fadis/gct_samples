@@ -88,9 +88,9 @@ INCLUDE_DIRECTORIES(
 link_directories(
   ${Boost_LIBRARY_DIRS}
   ${Vulkan_LIBRARY_DIRS}
-  ${VULKAN2JSON_LIBRARY_DIR}
-  ${GCT_LIBRARY_DIR}
-  ${GCT_GLFW_LIBRARY_DIR}
+  ${VULKAN2JSON_LIBRARY_DIRS}
+  ${GCT_LIBRARY_DIRS}
+  ${GCT_GLFW_LIBRARY_DIRS}
 )
 link_libraries(
   Threads::Threads

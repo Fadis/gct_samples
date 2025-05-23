@@ -221,9 +221,7 @@ int main( int argc, const char *argv[] ) {
 
   const auto sg = std::make_shared< gct::scene_graph::scene_graph >(
     gct::scene_graph::scene_graph_create_info()
-      .set_allocator( res.allocator )
-      .set_descriptor_pool( res.descriptor_pool )
-      .set_pipeline_cache( res.pipeline_cache )
+      .set_allocator_set( res.allocator_set )
       .add_master_shader( CMAKE_CURRENT_BINARY_DIR "/shadow" )
       .add_master_shader( CMAKE_CURRENT_BINARY_DIR "/geometry" )
       .add_master_shader( CMAKE_CURRENT_BINARY_DIR "/aabb" )

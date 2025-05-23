@@ -69,4 +69,23 @@ subdirs(
   119_prtlf
   120_motion_blur
   121_ppfl_motion_blur
+  140_prepare_mesh_shader
+  141_simple_mesh_shader1
+  142_simple_mesh_shader2
+  143_simple_mesh_shader3
+  144_simple_mesh_shader4
+  145_simple_mesh_shader5
+  146_simple_mesh_shader6
+  147_task_shader
+  148_task_payload
+  149_mesh_shader
+  150_mesh_shader_with_backface_culling
+  151_meshlet_backface_culling
+  152_parallel_meshlet_backface_culling
+  153_parallel_meshlet_backface_culling3
+  154_meshlet_frustum_culling
+  155_lod
+  156_lod2
+  157_flat_terrain
+  158_height_map_terrain
 )
