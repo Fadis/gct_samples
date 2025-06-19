@@ -47,6 +47,9 @@ add_shader( roc primitive_resource_index_pool/read.comp )
 add_shader( roc instance_resource_index_pool/write.comp )
 add_shader( roc instance_resource_index_pool/read.comp )
 
+add_shader( roc resource_pair/write.comp )
+add_shader( roc resource_pair/read.comp )
+
 add_shader( roc visibility_pool/write.comp )
 add_shader( roc visibility_pool/read.comp )
 

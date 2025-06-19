@@ -68,6 +68,9 @@ add_shader( prtlf instance_resource_index_pool/read.comp )
 add_shader( prtlf visibility_pool/write.comp )
 add_shader( prtlf visibility_pool/read.comp )
 
+add_shader( prtlf resource_pair/write.comp )
+add_shader( prtlf resource_pair/read.comp )
+
 add_shader( prtlf light_pool/write.comp )
 add_shader( prtlf light_pool/read.comp )
 add_shader( prtlf light_pool/update.comp )

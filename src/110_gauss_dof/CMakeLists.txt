@@ -67,6 +67,9 @@ add_shader( gauss_dof instance_resource_index_pool/read.comp )
 add_shader( gauss_dof visibility_pool/write.comp )
 add_shader( gauss_dof visibility_pool/read.comp )
 
+add_shader( gauss_dof resource_pair/write.comp )
+add_shader( gauss_dof resource_pair/read.comp )
+
 add_shader( gauss_dof light_pool/write.comp )
 add_shader( gauss_dof light_pool/read.comp )
 add_shader( gauss_dof light_pool/update.comp )
@@ -75,6 +78,9 @@ add_shader( gauss_dof gauss/h5_16.comp )
 add_shader( gauss_dof gauss/v5_16.comp )
 add_shader( gauss_dof gauss/h12_32.comp )
 add_shader( gauss_dof gauss/v12_32.comp )
+
+add_shader( gauss_dof coc_gauss/h12_32.comp )
+add_shader( gauss_dof coc_gauss/v12_32.comp )
 
 add_shader( gauss_dof lighting/lighting.comp )
 add_shader( gauss_dof gamma/gamma.comp )

@@ -766,7 +766,6 @@ int main( int argc, const char *argv[] ) {
       }
       command_buffer->execute(
         gct::submit_info_t()
-          .add_wait_for( sync.draw_complete, vk::PipelineStageFlagBits::eAllCommands )
           .add_signal_to( sync.render_complete )
       );
     }
