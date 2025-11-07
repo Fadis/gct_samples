@@ -88,4 +88,21 @@ subdirs(
   156_lod2
   157_flat_terrain
   158_height_map_terrain
+  160_screen_space_fur0
+  161_screen_space_fur1
+  162_screen_space_fur2
+  163_mark_shell
+  164_generate_fur_shell_texture
+  165_mark_shell_fur
+  166_kajiya_kay
+  167_stalling
+  168_kajiya_kay_blinn_phong
+  169_marschner_karis
+  170_ppll
+  171_ppll_shell
+  172_mark_fin
+  173_shell_and_fin
+  174_flat_hair_blade
+  175_generate_hair
+  176_hair_blade
 )
