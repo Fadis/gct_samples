@@ -105,4 +105,8 @@ subdirs(
   174_flat_hair_blade
   175_generate_hair
   176_hair_blade
+  180_dump_dds
+  181_dump_ktx1
+  182_dump_ktx2
+  183_image_diff
 )

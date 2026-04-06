@@ -72,7 +72,7 @@ pkg_check_modules(GCT REQUIRED libgct)
 pkg_check_modules(GCTGLFW REQUIRED libgct_glfw)
 find_package(GLSLC REQUIRED)
 find_package(OpenImageIO REQUIRED)
-
+find_package(Ktx CONFIG)
 
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}/include
