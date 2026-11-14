@@ -85,28 +85,37 @@ subdirs(
   153_parallel_meshlet_backface_culling3
   154_meshlet_frustum_culling
   155_lod
-  156_lod2
+  #156_lod2
   157_flat_terrain
   158_height_map_terrain
-  160_screen_space_fur0
-  161_screen_space_fur1
-  162_screen_space_fur2
-  163_mark_shell
-  164_generate_fur_shell_texture
-  165_mark_shell_fur
-  166_kajiya_kay
-  167_stalling
-  168_kajiya_kay_blinn_phong
-  169_marschner_karis
-  170_ppll
-  171_ppll_shell
-  172_mark_fin
-  173_shell_and_fin
-  174_flat_hair_blade
-  175_generate_hair
-  176_hair_blade
+  #160_screen_space_fur0
+  #161_screen_space_fur1
+  #162_screen_space_fur2
+  #163_mark_shell
+  #164_generate_fur_shell_texture
+  #165_mark_shell_fur
+  #166_kajiya_kay
+  #167_stalling
+  #168_kajiya_kay_blinn_phong
+  #169_marschner_karis
+  #170_ppll
+  #171_ppll_shell
+  #172_mark_fin
+  #173_shell_and_fin
+  ##174_flat_hair_blade
+  #175_generate_hair
+  #176_hair_blade
   180_dump_dds
   181_dump_ktx1
   182_dump_ktx2
   183_image_diff
+  190_terrain_noise
+  191_thermal_erosion
+  192_hydraulic_erosion
+  193_simple_hydraulic_erosion
+  194_render_terrain_noise
+  195_render_thermal_erosion
+  196_render_hydraulic_erosion
+  197_render_simple_hydraulic_erosion
+  198_standard_terrain
 )

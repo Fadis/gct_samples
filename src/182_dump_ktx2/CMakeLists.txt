@@ -5,7 +5,7 @@ target_link_libraries( dump_ktx2
   Threads::Threads
   Boost::program_options
   Boost::context
-  Boost::system
+  
 )
 
 

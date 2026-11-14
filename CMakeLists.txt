@@ -64,7 +64,7 @@ set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 find_package(Threads REQUIRED)
 set(Boost_USE_MULTITHREADED ON)
-find_package(Boost 1.68.0 COMPONENTS program_options context system REQUIRED )
+find_package(Boost 1.68.0 CONFIG COMPONENTS program_options context REQUIRED )
 find_package(JSON REQUIRED)
 pkg_check_modules(Vulkan REQUIRED vulkan)
 pkg_check_modules(VULKAN2JSON REQUIRED vulkan2json)
@@ -95,7 +95,6 @@ link_directories(
 link_libraries(
   Threads::Threads
   Boost::program_options
-  Boost::system
   ${Vulkan_LIBRARIES}
   ${GCT_LIBRARIES}
   ${GCTGLFW_LIBRARIES}

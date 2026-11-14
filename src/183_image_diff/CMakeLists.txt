@@ -4,7 +4,7 @@ target_link_libraries( image_diff
   Threads::Threads
   Boost::program_options
   Boost::context
-  Boost::system
+  
 )
 
 
